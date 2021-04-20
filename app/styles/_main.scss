@@ -1,0 +1,334 @@
+main {
+  width: 100%;
+  height: 100vh;
+  background-image: url(/images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-size: 150vw 55vh;
+  justify-content: center;
+  align-items: center;
+
+  .main-container {
+    flex-direction: column;
+    height: 100vh;
+
+    .tittle {
+      padding: 48px;
+      margin: 8vh auto;
+      text-align: center;
+      background-image: url(/images/pattern-circles.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      @include breakpoint-down(small) {
+        padding: 48px 18px 12px 18px;
+        margin: 50px 0 50px;
+        background-position: center 0px;
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        @include breakpoint-down(small) {
+          font-size: 20px;
+        }
+      }
+
+      p {
+        font-size: 17px;
+        color: $GrayishBlue;
+        @include breakpoint-down(small) {
+          font-size: 14px;
+          line-height: 25px;
+          padding: 0 70px 20px;
+        }
+      }
+    }
+
+    .container {
+      position: relative;
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 4fr 2fr 4fr 1fr 6fr;
+      max-width: 90%;
+      min-width: 550px;
+      height: 450px;
+      padding: 20px 50px 10px 50px;
+      border-radius: 10px;
+      background-color: $White;
+      filter: drop-shadow(0px 0px 10px $LightGrayishBlue);
+
+      @include breakpoint-down(small) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 90%;
+        min-width: 300px;
+        padding: 20px 20px 20px 20px;
+        height: initial;
+      }
+
+      .header {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        display: flex;
+        align-items: center;
+
+        h2 {
+          display: flex;
+          margin-left: auto;
+          font-size: 40px;
+          margin-right: 5px;
+
+          @include breakpoint-down(small) {
+            margin: auto;
+          }
+        }
+
+        p {
+          font-weight: 600;
+          color: $GrayishBlue;
+          letter-spacing: 2px;
+        }
+
+        .primero {
+          @include breakpoint-down(small) {
+            order: 1;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+          }
+        }
+
+        .p:nth-child(1) {
+          margin-right: auto;
+        }
+
+        .p:nth-child(2) {
+          margin-left: auto;
+        }
+      }
+
+      .slider-container {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+
+        @include breakpoint-down(small) {
+          order: 2;
+          width: 100%;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
+        .slider {
+          width: 100%;
+          height: 10px;
+          appearance: none;
+          outline: none;
+          border-radius: 7.5px;
+          background: linear-gradient(
+            90deg,
+            $SoftCyan 50%,
+            $LightGrayishBlue 50%
+          );
+
+          &::-webkit-slider-thumb {
+            appearance: none;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background: $StrongCyan;
+            background-image: url(/images/icon-slider.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 60%;
+            cursor: pointer;
+            filter: drop-shadow(0 13px 9px $SoftCyan);
+
+            &:hover {
+              background-color: $VeryStrongCyan;
+            }
+          }
+        }
+      }
+
+      .price {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        @include breakpoint-down(small) {
+          order: 3;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
+        #value {
+          margin-right: 10px;
+        }
+
+        h2 {
+          display: flex;
+          font-size: 40px;
+
+          @include breakpoint-down(small) {
+            margin: auto;
+          }
+        }
+
+        p {
+          font-weight: 600;
+          color: $GrayishBlue;
+          letter-spacing: 2px;
+        }
+      }
+
+      .sell {
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
+        display: flex;
+        align-items: center;
+        color: $GrayishBlue;
+        justify-content: flex-end;
+
+        @include breakpoint-down(small) {
+          order: 4;
+          justify-content: space-around;
+          width: 100%;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
+        p {
+          margin: 5px;
+          @include breakpoint-down(small) {
+            font-size: 12px;
+            letter-spacing: 0px;
+            margin: 0;
+          }
+        }
+
+        h3 {
+          font-size: 12px;
+          color: $LightRed;
+          padding: 2px 5px;
+          border-radius: 17px;
+          background: $LightGrayishRed;
+          margin-right: 30px;
+          @include breakpoint-down(small) {
+            margin: 0;
+          }
+        }
+
+        .toggle {
+          margin: 0 10px;
+          cursor: pointer;
+          width: 45px;
+          height: 25px;
+          border-radius: 12.5px;
+          background: $LightGrayishBlueToggle;
+          position: relative;
+          transition: background-color 0.2s ease-in;
+          @include breakpoint-down(small) {
+            min-width: 45px;
+          }
+          .circle {
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background-color: $White;
+            animation: slideout 0.2s ease-in both;
+          }
+        }
+
+        .toggle-active {
+          background-color: $StrongCyan;
+
+          & > .circle {
+            animation: slidein 0.2s ease-in both;
+          }
+        }
+      }
+
+      .line {
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+        position: absolute;
+        top: 10px;
+        left: -50px;
+        width: 120%;
+        height: 2px;
+        background-color: $VeryPaleBlue;
+        filter: contrast(0.9);
+
+        @include breakpoint-down(small) {
+          order: 5;
+          width: 115%;
+          height: 1px;
+          position: relative;
+          left: 0;
+          margin-top: 20px;
+        }
+      }
+
+      .items {
+        grid-column: 1 / 2;
+        grid-row: 5 / 6;
+
+        @include breakpoint-down(small) {
+          order: 6;
+          width: 60%;
+          margin-top: 30px;
+          text-align: center;
+        }
+
+        .item {
+          list-style: none;
+          line-height: 35px;
+          color: $GrayishBlue;
+          @include breakpoint-down(small) {
+            line-height: 30px;
+            font-size: 12px;
+          }
+          span {
+            margin-right: 20px;
+          }
+        }
+      }
+
+      .button {
+        cursor: pointer;
+        grid-column: 2 / 3;
+        grid-row: 5 / 6;
+        margin-left: auto;
+        background-color: $DarkDesaturatedBlue;
+        outline: none;
+        border: none;
+        color: $PaleBlue;
+        font-size: 15px;
+        width: 250px;
+        height: 50px;
+        border-radius: 25px;
+        text-align: center;
+        line-height: 50px;
+        letter-spacing: 1px;
+
+        @include breakpoint-down(small) {
+          order: 7;
+          width: 175px;
+          font-size: 12px;
+          margin: 20px auto;
+        }
+
+        &:hover {
+          color: $VeryPaleBlue;
+        }
+      }
+    }
+  }
+}

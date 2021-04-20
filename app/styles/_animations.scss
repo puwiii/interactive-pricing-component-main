@@ -1,0 +1,19 @@
+@keyframes slidein {
+    from {
+        left: 5px;
+    }
+
+    to{
+        left: 23px;
+    }
+}
+
+@keyframes slideout {
+    from {
+        left: 23px;
+    }
+
+    to{
+        left: 5px;
+    }
+}
